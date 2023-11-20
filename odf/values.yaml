@@ -100,10 +100,10 @@ osds:
   devicesetcount: 1
 #Enable cluster OSD encription
   encryption:
-    enabled: false
+    enabled: true
 #Number of replicas for the device set configuration. Set to 3 by default.
 #  replicas: 3
 #Storage Class that will be used to provision the ODF OSDs. If using LSO set it to 'localblock'
-  scname: 'thin'
+  scname: 'localblock'
 #Size of Each PV that will be provisioned to be used by the OSDs.
   disksize: '512Gi'
