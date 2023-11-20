@@ -10,7 +10,7 @@ spec:
   nodeSelector:
     nodeSelectorTerms:
       - matchExpressions:
-        - key: cluster.ocs.openshift.io/openshift-storage
+        - key: kubernetes.io/hostname
           operator: In
           values:
             - ""
