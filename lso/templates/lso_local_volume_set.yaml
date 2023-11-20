@@ -14,7 +14,7 @@ spec:
             operator: In
             values:
               - ""
-  storageClassName: localblock
+  storageClassName: localdisks
   volumeMode: Block
   maxDeviceCount: {{ .Values.lso.devicecount }}
   deviceInclusionSpec:
