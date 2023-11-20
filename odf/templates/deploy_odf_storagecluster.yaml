@@ -26,6 +26,7 @@ spec:
     enable: false
   {{- end }}
     kms: {}
+    clusterWide: true
   externalStorage: {}
   managedResources:
     cephBlockPools: {}
@@ -42,30 +43,6 @@ spec:
   monDataDirHostPath: /var/lib/rook
   {{- end }}
   nodeTopologies: {}
-  resources:
-    mon:
-      requests:
-        cpu: '{{ .Values.odf.mon.requests.cpu }}'
-        memory: {{ .Values.odf.mon.requests.memory }}
-    mds:
-      requests:
-        cpu: '{{ .Values.odf.mds.requests.cpu }}'
-        memory: {{ .Values.odf.mds.requests.memory }}
-    mgr:
-      requests:
-        cpu: '{{ .Values.odf.mgr.requests.cpu }}'
-        memory: {{ .Values.odf.mgr.requests.memory }}
-    noobaa-core:
-      requests:
-        cpu: '{{ .Values.odf.noobaacore.requests.cpu }}'
-        memory: {{ .Values.odf.noobaacore.requests.memory }}
-    noobaa-db:
-      requests:
-        cpu: '{{ .Values.odf.noobaadb.requests.cpu }}'
-        memory: {{ .Values.odf.noobaadb.requests.memory }}
-    noobaa-db-vol:
-      requests:
-        storage: '{{ default "50Gi" .Values.odf.noobaadb.disk }}'
   storageDeviceSets:
   - config: {}
     {{- if eq $.Values.osds.scname "localblock" }}
@@ -97,11 +74,5 @@ spec:
     {{- end }}
     preparePlacement: {}
     replica: {{ default "3 " $.Values.osds.replicas }}
-    resources:
-        limits:
-          cpu: '{{ .Values.odf.osd.limits.cpu }}'
-          memory: {{ .Values.odf.osd.limits.memory }}
-        requests:
-          cpu: '{{ .Values.odf.osd.requests.cpu }}'
-          memory: {{ .Values.odf.osd.requests.memory }}
+    resources: {}
 {{- end }}
