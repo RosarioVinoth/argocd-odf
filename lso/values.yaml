@@ -10,5 +10,6 @@ lso:
   channel: 'stable'
 # Number of discovered devices to use per node
   devicecount: 2
+  devicesize: 500Gi
 # Type of device to use, ignore Rotational Disks
   type: NonRotational
